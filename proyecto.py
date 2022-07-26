@@ -10,7 +10,7 @@ import math
 import psycopg2
 
 
-conexion1 = psycopg2.connect(host="ec2-34-201-248-246.compute-1.amazonaws.com",database="d7m4ha7d9pvjpl",user="hpfpbvrscirgei",password="c8dbfac3371a750650c15a5e27cea0410aa0c8c6ab1708d333b8b7060fe67409",port="5432")
+conexion1 = psycopg2.connect(host="ec2-54-87-179-4.compute-1.amazonaws.com",database="dpn11k2pnn723",user="ueazykrirxlecs",password="fecb97bff0ee359a8f041e6421e4d1ffc016a0820694e637c01943804cac21c7",port="5432")
 es = stopwords.words('spanish')
 
 palabras1 = []
@@ -428,4 +428,3 @@ def obtenerDato(texto):
     textNormal = " ".join(textotoken)
     textos = [textNormal,textStemming]
     return [valores,valorescv,mayorC[0],mayorJ[0],resultado,enspaT,textos]
-
