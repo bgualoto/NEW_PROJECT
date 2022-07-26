@@ -215,12 +215,19 @@ def obtenerDato(texto):
 
     #=========TRADUCCION========#
 
+    encontradas1 = []
     encontradas = []
     enspa = []
     for i in range(len(kickwacl)):
+      
         if(kickwacl[i] in textotoken):
-            encontradas.append(kickwacl[i])
+            print(textotoken)
+            encontradas1.append(kickwacl[i])
             enspa.append(palabrasQ2[i])
+        
+        for element in encontradas1:
+          if element not in encontradas:
+            encontradas.append(element)
             
     print("Palabras encontradas")
     print(encontradas)
