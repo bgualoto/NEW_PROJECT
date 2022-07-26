@@ -1,4 +1,3 @@
-poetry install
 import re
 import psycopg2
 import nltk
