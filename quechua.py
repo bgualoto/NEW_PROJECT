@@ -28,7 +28,7 @@ cursor = conexion1.cursor()
 
 # Consulta las palabras kichwa con etiquetas positivas
 cursor.execute(
-    "SELECT kichwa FROM diccionario2 where etiquetas = 'positive'"
+    "SELECT quechua FROM diccionario2 where etiquetas = 'positive'"
 )
 for kichwa in cursor.fetchall():
     pal = "".join(kichwa)
@@ -36,7 +36,7 @@ for kichwa in cursor.fetchall():
 
 # Consulta las palabras kichwa con etiquetas negativas
 cursor.execute(
-    "SELECT kichwa FROM diccionario2 where etiquetas = 'negative'"
+    "SELECT quechua FROM diccionario2 where etiquetas = 'negative'"
 )
 for kichwa in cursor.fetchall():
     pal = "".join(kichwa)
@@ -44,7 +44,7 @@ for kichwa in cursor.fetchall():
 
 # Consulta las palabras kichwa con etiquetas neutras
 cursor.execute(
-    "SELECT kichwa FROM diccionario2 where etiquetas = 'neutral'"
+    "SELECT quechua FROM diccionario2 where etiquetas = 'neutral'"
 )
 for kichwa in cursor.fetchall():
     pal = "".join(kichwa)
@@ -52,7 +52,7 @@ for kichwa in cursor.fetchall():
 
 # Consulta las palabras en kichwa
 cursor.execute(
-    "SELECT kichwa FROM diccionario2"
+    "SELECT quechua FROM diccionario2"
 )
 for kichwa in cursor.fetchall():
     pal = "".join(kichwa)
@@ -152,7 +152,7 @@ for n in significado4:
                
       
 # Página Web
-def obtenerDato(texto):
+def obtenerDato1(texto):
     texto_prueba = texto
 #=============CONTADOR PALABRAS + - neutras ==============
     def listToString(s):    
