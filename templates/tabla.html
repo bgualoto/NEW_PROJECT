@@ -29,10 +29,17 @@
         <a href="index.html"  class="btn btn-success btn-lg">Inicio</a>
     </header>
 
+    <section >
+        <h1 class="display-1"  style="text-align: center; color:white " >Universidad Politécnica Salesiana</h1>
+    </section>
+    <!-- SI VALE-->
     <section id="hero" class="d-flex align-items-center">
+
         <div class="container" data-aos="fade-up">
-            <h1 style="font-size: x-large;">Resultados</h1>
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            
+            <h1 class="display-3" style="text-align: center" >Resultados Kichwa</h1>
+
+            <ul class="nav nav-tabs" id="pills-tab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Resultado</a>
                 </li>
@@ -43,12 +50,13 @@
                     <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Traducción</a>
                 </li>
             </ul>
+
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                     <div class="row justify-content-center">
 
-                        <table class="table table-hover">
-                            <thead>
+                        <table class="table">
+                            <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">Texto</th>
                                     <th class="text-center" scope="col">Jaccard</th>
@@ -66,31 +74,11 @@
                                 </tr>
                             </tbody>
                         </table>
-
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Texto</th>
-                                    <th class="text-center" scope="col">Jaccard1</th>
-                                    <th class="text-center" scope="col">Coseno Vectorial1</th>
-                                    <th class="text-center" scope="col">Resultado1</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="text-justify" style="width: 50%">{{texto}}
-                                    </td>
-                                    <th class="text-center">{{mayorJ1}}</th>
-                                    <th class="text-center">{{mayorC1}}</th>
-                                    <th class="text-center">{{resultado1[0]}}</th>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    <table class="table table-hover">
-                        <thead>
+                    <table class="table">
+                        <thead class="thead-dark">
                             <tr>
                                 <th></th>
                                 <th scope="col" class="text-center">Jaccard</th>
@@ -117,30 +105,31 @@
                             </tr>
                         </tbody>
                     </table>
-
-                    <table class="table table-hover">
-                        <thead>
+<br>
+<h1 class="display-3" style="text-align: center" >QUECHUA</h1>
+<table class="table">
+                        <thead class="thead-dark">
                             <tr>
                                 <th></th>
-                                <th scope="col" class="text-center">Jaccard1</th>
-                                <th scope="col" class="text-center">Coseno Vectorial1</th>
-                                <th scope="col" class="text-center">Votación por Mayoría1</th>
+                                <th scope="col" class="text-center">Jaccard</th>
+                                <th scope="col" class="text-center">Coseno Vectorial</th>
+                                <th scope="col" class="text-center">Votación por Mayoría</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th class="text-center">Positivo1</th>
+                                <th class="text-center">Positivo</th>
                                 <th class="text-center">{{jaccard1[1]}}</th>
                                 <th class="text-center">{{coseno1[1]}}</th>
                                 <th class="text-center">{{resultado1[0]}} con {{resultado1[1]}}</th>
                             </tr>
                             <tr>
-                                <th class="text-center">Negativo1</th>
+                                <th class="text-center">Negativo</th>
                                 <th class="text-center">{{jaccard1[2]}}</th>
                                 <th class="text-center">{{coseno1[2]}}</th>
                             </tr>
                             <tr>
-                                <th class="text-center">Neutro1</th>
+                                <th class="text-center">Neutro</th>
                                 <th class="text-center">{{jaccard1[3]}}</th>
                                 <th class="text-center">{{coseno1[3]}}</th>
                             </tr>
@@ -148,12 +137,12 @@
                     </table>
                 </div>
                 <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <table class="table table-hover">
-                        <thead>
+                    <table class="table">
+                        <thead class="thead-dark">
                             <tr>
                                 <th scope="col" class="text-center">Palabra Encontrada</th>
                                 <th scope="col" class="text-center">Traducción 1</th>
-                                <th scope="col" class="text-center">QUECHUA 2</th>
+                                <th scope="col" class="text-center">Traducción 2</th>
                                 <th scope="col" class="text-center">Traducción 3</th>
                             </tr>
                         </thead>
@@ -166,34 +155,43 @@
                                 <th class="text-center">{{trad3[i]}}</th>
                             </tr>
                             {%endfor%}
+
                         </tbody>
                     </table>
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col" class="text-center">Palabra Encontradas</th>
-                                <th scope="col" class="text-center">Traducción 11</th>
-                                <th scope="col" class="text-center">QUECHUA 21</th>
-                                <th scope="col" class="text-center">Traducción 31</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {%for i in range(lon1)%}
-                            <tr>
-                                <th class="text-center">{{encontradas1[i]}}</th>
-                                <th class="text-center">{{trad11[i]}}</th>
-                                <th class="text-center">{{trad21[i]}}</th>
-                                <th class="text-center">{{trad31[i]}}</th>
-                            </tr>
-                            {%endfor%}
-                        </tbody>
-                    </table>
+<br>
+            <br>
+            <h1 class="display-3" style="text-align: center" >QUECHUA</h1>
+
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" class="text-center">Palabra Encontrada</th>
+                        <th scope="col" class="text-center">Traducción 1</th>
+                        <th scope="col" class="text-center">Traducción 2</th>
+                        <th scope="col" class="text-center">Traducción 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for i in range(lon1)%}
+                    <tr>
+                        <th class="text-center">{{encontradas1[i]}}</th>
+                        <th class="text-center">{{trad11[i]}}</th>
+                        <th class="text-center">{{trad21[i]}}</th>
+                        <th class="text-center">{{trad31[i]}}</th>
+                    </tr>
+                    {%endfor%}
+
+                </tbody>
+            </table>
                 </div>
-                
             </div>
+
+            
+            
+
         </div>
+        
     </section>
- </section>
 
 
 
@@ -258,7 +256,6 @@
         </dd>
         </dl>
     </section>
-
 </footer>
 
 
