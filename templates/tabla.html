@@ -105,6 +105,36 @@
                             </tr>
                         </tbody>
                     </table>
+<br>
+<h1 class="display-3" style="text-align: center" >QUECHUA</h1>
+<table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th></th>
+                                <th scope="col" class="text-center">Jaccard</th>
+                                <th scope="col" class="text-center">Coseno Vectorial</th>
+                                <th scope="col" class="text-center">Votación por Mayoría</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="text-center">Positivo</th>
+                                <th class="text-center">{{jaccard1[1]}}</th>
+                                <th class="text-center">{{coseno1[1]}}</th>
+                                <th class="text-center">{{resultado1[0]}} con {{resultado1[1]}}</th>
+                            </tr>
+                            <tr>
+                                <th class="text-center">Negativo</th>
+                                <th class="text-center">{{jaccard1[2]}}</th>
+                                <th class="text-center">{{coseno1[2]}}</th>
+                            </tr>
+                            <tr>
+                                <th class="text-center">Neutro</th>
+                                <th class="text-center">{{jaccard1[3]}}</th>
+                                <th class="text-center">{{coseno1[3]}}</th>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                     <table class="table">
@@ -128,12 +158,9 @@
 
                         </tbody>
                     </table>
-                </div>
-            </div>
-
+<br>
             <br>
-            <br>
-            <h1 class="display-3" style="text-align: center" >TABLA 2</h1>
+            <h1 class="display-3" style="text-align: center" >QUECHUA</h1>
 
             <table class="table">
                 <thead class="thead-dark">
@@ -145,17 +172,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {%for i in range(lon)%}
+                    {%for i in range(lon1)%}
                     <tr>
-                        <th class="text-center">{{encontradas[i]}}</th>
-                        <th class="text-center">{{trad1[i]}}</th>
-                        <th class="text-center">{{trad2[i]}}</th>
-                        <th class="text-center">{{trad3[i]}}</th>
+                        <th class="text-center">{{encontradas1[i]}}</th>
+                        <th class="text-center">{{trad11[i]}}</th>
+                        <th class="text-center">{{trad21[i]}}</th>
+                        <th class="text-center">{{trad31[i]}}</th>
                     </tr>
                     {%endfor%}
 
                 </tbody>
             </table>
+                </div>
+            </div>
+
+            
             
 
         </div>
