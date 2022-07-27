@@ -1,96 +1,153 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+		<!-- Autor: Anderson Ladino -->
 
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Análisis de Sentimientos</title>
-    <link rel="shortcut icon" href="../static/img/icono.png" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-    <link href="../static/css/vendor/venobox/venobox.css" rel="stylesheet">
-    <link href="../static/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/css/vendor/icofont/icofont.min.css" rel="stylesheet">
-    <link href="../static/css/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="../static/css/vendor/venobox/venobox.css" rel="stylesheet">
-    <link href="../static/css/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="../static/css/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="../static/css/vendor/aos/aos.css" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
-    <link href="../static/css/estilos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+<html>
+	<head>
+		<title>Animate a Crear</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
 
-<body>
-    <header id="header" class="fixed-top textos bg-dark">
-    </header>
-    <section id="hero" class="d-flex align-items-center">
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-            <div class="row justify-content-center">
-                <div class="col-10 text-center">
-                    <h1>ANÁLISIS DE SENTIMIENTOS IDIOMA KICHWA</h1>
-                    <h2>Proyecto primer parcial - Aprendizaje de Máquina</h2>
-                </div>
-
-                <div class="col-8 text-center ">
-                    <a href="#about" class="btn-get-started scrollto">Comenzar</a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <main id="main">
-        <section id="about" class="about">
-            <div class="container ajustar" data-aos="fade-up">
-                <div class="section-title">
-                    <h2>Análisis de Sentimientos del idioma Kichwa</h2>
-                    <p></p>
-                    <div class="divider py-1 bg-dark"></div>
-                    <!--                     <hr class="mt-2 mb-3" /> -->
-                </div>
-                <form method="POST" id="todo-form">
-                    <div class="form-group">
-                        <p class="font-weight-light">Ingrese el texto a analizar:</p>
-                        <textarea class="form-control" name="todo" id="todo" rows="10" required></textarea>
-                    </div>
-                    <div class="form-group">
-
-                        <button type="submit" class="btn btn-outline-primary btn-lg btn-block">Enviar <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></button>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </main>
-    <footer id="footer" class="text-white bg-dark">
-        <div class="container d-md-flex py-4 ">
-            <div class="mr-md-auto text-center text-md-left ">
-                <div class="copyright ">
-                    <p> <strong class="text-white">UNIVERSIDAD POLITÉCNICA SALESIANA - MACHINE LEARNING</strong> </p>
-                    <p> <strong class="text-white">Autores:</strong> </p>
-                </div>
-                <div class="credits text-white">
-                    Jefry Navas <br> Edwin Hernández <br> Amarilis Cueva <br> Joel Yunga <br> Alisson Vizcaino
+			<div id="wrapper">
 
 
-                </div>
-            </div>
-        </div>
-    </footer>
-    <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
-    <div id="preloader"></div>
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script src="../static/css/vendor/jquery/jquery.min.js"></script>
-    <script src="../static/css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../static/css/vendor/jquery.easing/jquery.easing.min.js"></script>
-    <script src="../static/css/vendor/aos/aos.js"></script>
-    <script src="../static/css/vendor/php-email-form/validate.js"></script>
-    <script src="../static/css/vendor/waypoints/jquery.waypoints.min.js"></script>
-    <script src="../static/css/vendor/counterup/counterup.min.js"></script>
-    <script src="../static/css/vendor/venobox/venobox.min.js"></script>
-    <script src="../static/css/vendor/owl.carousel/owl.carousel.min.js"></script>
-    <script src="../static/css/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="../static/css/vendor/aos/aos.js"></script>
-    <script src="../static/css/js/main.js"></script>
-</body>
+				
+					<header id="header" class="alt">
+						<span class="logo"><img src="images/31.png" alt="AnimateACrear" /></span>
+						<h1>UNIVERSIDAD POLITÉCNICA SALESIANA</h1>
+						<h1>PROYECTO IDIOMA KICHWA</h1>
+						<h2>Aprendizaje de Máquina</h2>
+					</header>
+
+					<nav id="nav">
+						<ul>
+							<li><a href="#intro" class="active">Traductor</a></li>
+							<li><a href="#first">Información</a></li>
+							<li><a href="#cta">Contáctos</a></li>
+						</ul>
+					</nav>
+
+					<div id="main">
+
+							<section id="intro" class="main">
+								<div class="spotlight">
+								
+
+									<div class="content">
+										<main id="main">
+											<section id="about" class="about">
+												<div class="container ajustar" data-aos="fade-up">
+													<div class="section-title">
+														<h2 >Traductor - Kichwa</h2>
+														<p></p>
+														<div class="divider py-1 bg-dark"></div>
+														<!--                     <hr class="mt-2 mb-3" /> -->
+													</div>
+													<form method="POST" id="todo-form">
+														<div class="form-group">
+															<p class="font-weight-light">Ingrese el texto a analizar:</p>
+															<textarea class="form-control" name="todo" id="todo" rows="10" required></textarea>
+														</div>
+														<div class="form-group">
+									
+															<button type="submit" class="btn btn-outline-primary btn-lg btn-block">Analizar <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></button>
+														</div>
+													</form>
+												</div>
+											</section>
+										</main>
+									</div>
+								</div>
+
+							</section>
+
+							<section id="first" class="main special">
+								<header class="major">
+									<h2>Información</h2>
+								</header>
+								<ul class="features">
+										<span class="icon major style3 fa-copy"></span>
+										
+										<p>
+											Se pretende realizar el análisis de sentimientos de 
+											textos en el idioma kichwa mediante un sistema web. Para dicho sistema, primero fue 
+											necesario tomar los textos que tenemos como entrada y pasarlos por el procesamiento 
+											natural del lenguaje, de manera que todo el texto se encuentre bajo un mismo estándar
+											 y sea más fácil de analizarlo, además, se hará uso del método de la distancia de 
+											 Jaccard y de Coseno Vectorial para poder identificar que sentimiento esta produciendo
+											  el texto introducido ya sea positivo, negativo o neutro,
+											 para llevar a cabo este problema se propone un modelo de clasificación.
+
+										</p>
+
+						
+								
+								</ul>
+					
+							</section>
 
 
+							<section id="cta" class="main special">
+								<header class="major">
+									<h2>Contáctos</h2>
+									<p>#TraductorKichwa</p>
+								</header>
+
+							</section>
+
+					</div>
+
+					<footer id="footer">
+						<section>
+
+								<h3>Autores</h3>
+								<p>Maria Fernanda Albán
+								<br> (+593) 989696997</p>
+
+								<p>Anderson Ladino   
+									<br> (+593) 963342229</p>
+								<p>Antony Saritama
+									<br> (+593) 995117758
+								</p>
+								<p>Bryan Gualoto
+									<br> (+593) 978834219
+								</p>
+								<p>Anderson Puetate
+									<br> (+593) 998342268
+								</p>
+
+
+
+						</section>
+						<section>
+							<h2>#TraductorKichwa</h2>
+							<dl class="alt">
+								<dt>Dirección:</dt>
+								<dd>Ecuador &bull; Quito, Quitumbe &bull; Av.condor ñan y ñusta</dd>
+								<dt>Teléfono:</dt>
+								<dd>2736539</dd>
+								<dt>Correo electrónico:</dt>
+								<dd>
+								<a href="mailto:andersonladino17@gmail.com?cc=aladino@est.ups.edu.ec, aladino@est.ups.edu.ec, &bcc=aladino@est.ups.edu.ec &subject=Solicitud de Información &body=Necesito mayor información de Animate a Crear">andersonladino17@gmail.com</a>
+							</dd>
+							</dl>
+						</section>
+						<p class="copyright">&copy; Creado por:<a href="">TraductorKichwa</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
