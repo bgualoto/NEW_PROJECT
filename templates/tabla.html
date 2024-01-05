@@ -20,18 +20,20 @@
     <link href="../static/css/vendor/aos/aos.css" rel="stylesheet">
     <link href="../static/css/style.css" rel="stylesheet">
     <link href="../static/css/estilos.css" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
     
 </head>
 
 <body>
+
     <header class="fixed-top textos bg-dark py-1" id="header">
         <a href="{{ url_for('index_func') }}"  class="btn btn-success btn-lg">Inicio</a>
     </header>
 
-    <section >
+    <!--<section >
         <h1 class="display-1"  style="text-align: center; color:white " >Universidad Politécnica Salesiana</h1>
-    </section>
+    </section>-->
     <!-- SI VALE-->
     <section id="hero" class="d-flex align-items-center">
 
@@ -60,8 +62,8 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">Texto</th>
-                                    <th class="text-center" scope="col">Jaccard</th>
-                                    <th class="text-center" scope="col">Coseno Vectorial</th>
+                                    <!-- <th class="text-center" scope="col">Jaccard</th> -->
+                                    <!-- <th class="text-center" scope="col">Coseno Vectorial</th> -->
                                     <th class="text-center" scope="col">Resultado</th>
                                 </tr>
                             </thead>
@@ -69,96 +71,60 @@
                                 <tr>
                                     <td class="text-justify" style="width: 50%">{{texto}}
                                     </td>
-                                    <th class="text-center">{{mayorJ}}</th>
-                                    <th class="text-center">{{mayorC}}</th>
-                                    <th class="text-center">{{resultado[0]}}</th>
+                                    <!-- <th class="text-center">{{mayorJ}}</th> -->
+                                     <th class="text-center">{{mayorC}}</th>
+                                    <!--<th class="text-center">{{resultado[0]}}</th>-->
                                 </tr>
                             </tbody>
 
-                        </table>
-		<h1 class="display-3" style="text-align: center" >QUECHUA</h1>
-			<table class="table">
-			<thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">Texto</th>
-                                    <th class="text-center" scope="col">Jaccard</th>
-                                    <th class="text-center" scope="col">Coseno Vectorial</th>
-                                    <th class="text-center" scope="col">Resultado</th>
-                                </tr>
-                            </thead>
-                           
-                            <tbody>
-                                <tr>
-                                    <td class="text-justify" style="width: 50%">{{texto}}
-                                    </td>
-                                    <th class="text-center">{{mayorJ1}}</th>
-                                    <th class="text-center">{{mayorC1}}</th>
-                                    <th class="text-center">{{resultado1[0]}}</th>
-                                </tr>
-                            </tbody>
                         </table>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 <h1 class="display-3" style="text-align: center" >KICHWA</h1>
+
+
                     <table class="table">
                         <thead class="thead-dark">
                             <tr>
                                 <th></th>
-                                <th scope="col" class="text-center">Jaccard</th>
-                                <th scope="col" class="text-center">Coseno Vectorial</th>
+                                <!--<th scope="col" class="text-center">Jaccard</th>-->
+                                <th scope="col" class="text-center">Porcentajes</th>
                                 <th scope="col" class="text-center">El mayor puntaje</th>
+                                <th scope="col" class="text-center">Gráfico</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th class="text-center">Positivo</th>
-                                <th class="text-center">{{jaccard[1]}}</th>
-                                <th class="text-center">{{coseno[1]}}</th>
-                                <th class="text-center">{{resultado[0]}} con {{resultado[1]}}</th>
+                                <!--<th class="text-center">{{jaccard[1]}}</th>-->
+                                <th class="text-center">{{data[0]}} %</th>
+                                <th class="text-center">{{cosenoresp[0]}} con {{mayorCV[1]}} %</th>
+                                                            <th rowspan="3" class="text-center">
+                         <div id="chart"></div>
+    <script>
+        var graphJSON = {{ graphJSON | tojson| safe }};
+        Plotly.newPlot('chart', JSON.parse(graphJSON));
+    </script>
+                            </th>
                             </tr>
                             <tr>
                                 <th class="text-center">Negativo</th>
-                                <th class="text-center">{{jaccard[2]}}</th>
-                                <th class="text-center">{{coseno[2]}}</th>
+                                <!--<th class="text-center">{{jaccard[2]}}</th>-->
+                                <th class="text-center">{{data[1]}} %</th>
                             </tr>
                             <tr>
                                 <th class="text-center">Neutro</th>
-                                <th class="text-center">{{jaccard[3]}}</th>
-                                <th class="text-center">{{coseno[3]}}</th>
+                                <!--<th class="text-center">{{jaccard[3]}}</th>-->
+                                <th class="text-center">{{data[2]}} %</th>
                             </tr>
+                        <tr>
+
+
+                        </tr>
                         </tbody>
                     </table>
 <br>
-<h1 class="display-3" style="text-align: center" >QUECHUA</h1>
-<table class="table">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th></th>
-                                <th scope="col" class="text-center">Jaccard</th>
-                                <th scope="col" class="text-center">Coseno Vectorial</th>
-                                <th scope="col" class="text-center">El Mayor puntaje</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th class="text-center">Positivo</th>
-                                <th class="text-center">{{jaccard1[1]}}</th>
-                                <th class="text-center">{{coseno1[1]}}</th>
-                                <th class="text-center">{{resultado1[0]}} con {{resultado1[1]}}</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center">Negativo</th>
-                                <th class="text-center">{{jaccard1[2]}}</th>
-                                <th class="text-center">{{coseno1[2]}}</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center">Neutro</th>
-                                <th class="text-center">{{jaccard1[3]}}</th>
-                                <th class="text-center">{{coseno1[3]}}</th>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
                 <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
 <h1 class="display-3" style="text-align: center" >KICHWA</h1>
@@ -185,29 +151,6 @@
                     </table>
 <br>
             <br>
-            <h1 class="display-3" style="text-align: center" >QUECHUA</h1>
-
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col" class="text-center">Palabra Encontrada</th>
-                        <th scope="col" class="text-center">Traducción 1</th>
-                        <th scope="col" class="text-center">Traducción 2</th>
-                        <th scope="col" class="text-center">Traducción 3</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {%for i in range(lon1)%}
-                    <tr>
-                        <th class="text-center">{{encontradas1[i]}}</th>
-                        <th class="text-center">{{trad11[i]}}</th>
-                        <th class="text-center">{{trad21[i]}}</th>
-                        <th class="text-center">{{trad31[i]}}</th>
-                    </tr>
-                    {%endfor%}
-
-                </tbody>
-            </table>
                 </div>
             </div>
 
@@ -220,7 +163,7 @@
 
 
 
-    <main id="main" class="py-5">
+   <!-- <main id="main" class="py-5">
 
         <div class="container py-5" data-aos="fade-up">
         <h1 class="display-1"  style="text-align: center; color:white " >Stemming</h1>
@@ -244,29 +187,18 @@
             </div>
         </div>
 
-    </main>
-    <!-- End #main -->
-    <footer id="footer" class="text-white bg-dark">
-        <section>
 
+
+    </main>
+     End #main -->
+    <!--<footer id="footer" class="text-white bg-dark">
+        <section>
             <h3>Autores</h3>
             <p>Maria Fernanda Albán
             <br> (+593) 989696997</p>
-
-            <p>Anderson Ladino   
-                <br> (+593) 963342229</p>
-            <p>Antony Saritama
-                <br> (+593) 995117758
-            </p>
             <p>Bryan Gualoto
                 <br> (+593) 978834219
             </p>
-            <p>Anderson Puetate
-                <br> (+593) 998342268
-            </p>
-
-
-
     </section>
     <section>
         <h2>#TraductorKichwa</h2>
@@ -280,7 +212,7 @@
             <a href="mailto:andersonladino17@gmail.com?cc=aladino@est.ups.edu.ec, aladino@est.ups.edu.ec, &bcc=aladino@est.ups.edu.ec &subject=Solicitud de Información &body=Necesito mayor información de Animate a Crear">andersonladino17@gmail.com</a>
         </dd>
         </dl>
-    </section>
+    </section>-->
 </footer>
 
 
