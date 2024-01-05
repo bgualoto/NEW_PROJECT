@@ -17,7 +17,7 @@ jupyter-client==6.1.12
 jupyter-core==4.7.1
 lazy-object-proxy==1.4.3
 MarkupSafe==2.0.0
-matplotlib-inline==0.1.2
+matplotlib==3.7.1
 mccabe==0.6.1
 nltk==3.6.2
 numpy==1.23.0
