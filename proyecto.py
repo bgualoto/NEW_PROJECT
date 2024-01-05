@@ -1,5 +1,4 @@
 import re
-import psycopg2
 import nltk
 nltk.download('stopwords')
 from nltk.corpus import stopwords
@@ -10,7 +9,8 @@ import math
 import psycopg2
 
 
-conexion1 = psycopg2.connect(host="ec2-54-208-104-27.compute-1.amazonaws.com",database="d33sui5ulcjai9",user="nplqqhijzmpbrp",password="76c7429983ed98e30b82c9b55b525f2551001f278724fb9f01978963795d88cf",port="5432")
+
+conexion1 = psycopg2.connect(host="localhost",database="tesisone",user="postgres",password="infinit",port="5432")
 es = stopwords.words('spanish')
 
 palabras1 = []
@@ -153,6 +153,7 @@ for n in significado4:
       
 # Página Web
 def obtenerDato(texto):
+    print("INICIA OBTENER")
     texto_prueba = texto
 #=============CONTADOR PALABRAS + - neutras ==============
     def listToString(s):    
@@ -174,6 +175,7 @@ def obtenerDato(texto):
 
 
     #======Stemming del texto ingresado======
+    #TOKENIZACION
     textotoken =  datosclean[0].split()
    
     textotoken2 = []
@@ -193,9 +195,12 @@ def obtenerDato(texto):
 
     print("Texto con Stemming")
     print(textotoken2)
-    print() 
+    print()
+    print("Texto tokenizado")
+    print(textotoken)
+    print()
 
-    
+
     #=======CREACION STOPWORDS=========
     lugares = []
     for i in range(len(sig1)):
@@ -207,11 +212,15 @@ def obtenerDato(texto):
             stkw.append(palabrasT[i])
 
     stopkickwa = []
+    print("Stopwords sin normalizar")
+    print(stkw)
+    print()
     for n in stkw:
         stopkickwa.append(re.sub('[,.:0123456789#()"-/]', '', n.lower()))
     print("Stopwords")       
     print(stopkickwa)
     print("\n")
+    print("LONGITUD"+str(len(stopkickwa)))
 
     #=========TRADUCCION========#
 
@@ -271,19 +280,31 @@ def obtenerDato(texto):
                     i.remove(word)
         return lista
 
+    def cant(lista):
+        cant_lista = len(lista)
+        return cant_lista
+
+
     # Funcion para Jaccard
     def jaccard(lista1, lista2):
         intersection = len(list(set(lista1).intersection(lista2)))
         union = len(list(set(lista1))) + len(list(set(lista2))) - intersection
         return float(intersection) / union
     #=========================
-
+    print("CANTIDAD: " + str(datosclean))
+    print("CANTIDAD: " + str(datosclean[0]))
     datosclean[0] = " ".join(textotoken)
     # TOKENIZACION
     datoscleanToken = tokenizar(datosclean)
 
     # ELIMINACION DE STOPWORDS
     datoscleanToken = stopwords(datoscleanToken)
+    cantText = cant(datoscleanToken)
+    print("CANTIDAD: " + str(datosclean))
+    print("CANTIDAD: " + str(datosclean[0]))
+    print("CANTIDAD DE PALABRAS EN KCHWA: "+str(cant(datoscleanToken)))
+    # Importa Matplotlib
+
 
     ##############DISTANCIA DE JACCARD##########
     lon = len(datoscleanToken)
@@ -294,7 +315,9 @@ def obtenerDato(texto):
     for i in range(lon):
         for j in range(lon):
             a = datoscleanToken[i]
+            print("A",str(a))
             b = datoscleanToken[j]
+            print("B", str(b))
             jc = jaccard(a, b)
             vtitulos[i][j] = round(jc, 4)
 
@@ -310,23 +333,36 @@ def obtenerDato(texto):
     print("Postivo",posjc)
     print("Negativo",negjc)
     print("Neutro: ",neujc)
+    total_polaridad_jaccard = posjc + negjc + neujc
+    print("TOTAL JACCARD:"+str(total_polaridad_jaccard))
+    polaridadjc = 3
     if posjc > negjc and posjc > neujc:
         mayorJ = ["Positivo",posjc]
+        polaridadjc = 1
     elif negjc > posjc and negjc > neujc:
         mayorJ = ["Negativo",negjc]
+        polaridadjc = 2
     elif neujc > posjc and neujc > negjc:
         mayorJ = ["Neutro",negjc]
+        polaridadjc = 3
     elif posjc == 0 and negjc == 0 and neujc == 0:
         mayorJ = ["",0]
+        polaridadjc = 3
     elif posjc == negjc or posjc == neujc:
         mayorJ = ["Positivo",posjc]
+        polaridadjc = 1
+
+
+
     ##############COSENO VECTORIAL##########
 
     vec = []
     for abst in datoscleanToken:
         vec.append(" ".join(abst))
-    #CREACION DE DICCIONARIO DEL ABSTRACT
+    print("vec: " + str(vec))
+    #CREACION DE DICCIONARIO
     union = " ".join(vec)
+    print("union: "+str(union))
     diccionario = set(union.split())
     listaD = list(diccionario)
     listaD.sort()
@@ -399,17 +435,23 @@ def obtenerDato(texto):
     print("Por Coseno Vectorial")
     print("Postivo",poscv)
     print("Negativo",negcv)
-    print("Neutro: ",neucv*0.50)      
+    print("Neutro: ",neucv*0.50)
+    polaridadcv = 3
     if poscv > negcv and poscv > neucv:
         mayorC = ["Positivo",poscv]
+        polaridadcv = 1
     elif negcv > poscv and negcv > neucv:
         mayorC = ["Negativo",negcv]
+        polaridadcv = 2
     elif neucv > poscv and neucv > negcv:
         mayorC = ["Neutro",neucv]
+        polaridadcv = 3
     elif poscv == 0 and negcv == 0 and neucv == 0:
         mayorC = ["",0]
+        polaridadcv = 3
     elif poscv == negcv and poscv == neucv:
         mayorC = ["Positivo",poscv]
+        polaridadcv = 1
    
 
 
@@ -427,4 +469,7 @@ def obtenerDato(texto):
     textStemming = " ".join(textotoken2)
     textNormal = " ".join(textotoken)
     textos = [textNormal,textStemming]
-    return [valores,valorescv,mayorC[0],mayorJ[0],resultado,enspaT,textos]
+    print("FINALIZA OBTENER")
+
+
+    return [valores,valorescv,mayorC[0],mayorJ[0],resultado,enspaT,textos,cantText,polaridadjc,polaridadcv,mayorC]
