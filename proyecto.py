@@ -10,7 +10,7 @@ import psycopg2
 
 
 
-conexion1 = psycopg2.connect(host="ec2-3-217-146-37.compute-1.amazonaws.com", database="d8og3v84lnrolu", user="nrvefffovpndvf", password="75e45814cefdbb87666ecb87fb307def98fb28a1e44736157342bbf1982ea50d", port="5432")
+conexion1 = psycopg2.connect(host="ec2-52-0-187-246.compute-1.amazonaws.com", database="dfi0dlnphv0n4g", user="sjzusdoucefvnf", password="0e95660db9c31951de2a638e83e9d470bc66365e3a1f52185aa4c9011a5eb5d1", port="5432")
 es = stopwords.words('spanish')
 
 palabras1 = []
